@@ -10,6 +10,10 @@
 		outline: none;
 	}
 
+	a {
+		cursor: pointer;
+		display: inline-block; }
+
 	.main {
 		max-width: 900px;
 		margin: 0 auto;
@@ -106,8 +110,41 @@
 		border-radius: 2px;
 		border: 1px solid #CCC; }
 
+	form select {
+		height: 50px; }
+
 	form .button-group .btn {
 		line-height: 44px; }
+
+	table {
+		width: 100%; }
+
+	table tr td { 
+		padding-right: 10px; }
+
+	table thead th {
+		text-align: left; }
+
+	table thead th:last-child {
+		width: 120px; }
+
+	tr td:first-child {
+		width: 44px;
+		text-align: center; }
+
+	tr:first-child .delete-row {
+		display: none; }
+
+	.total-row td:nth-child(2) {
+		font-size: 20px;
+		text-align: right; }
+
+	.total-row td:last-child {
+		font-size: 20px;
+		font-weight: bold; }
+
+	#contributions tr:last-child td:first-child {
+		text-align: left; }
 
 	@media (max-width: 480px) { 
 
