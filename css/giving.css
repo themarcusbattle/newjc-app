@@ -1,0 +1,114 @@
+	* { 
+		box-sizing: border-box; 
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		font-size: 16px;
+		font-weight: 200;
+		font-family: Helvetica Nue, Arial;
+		outline: none;
+	}
+
+	.main {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 15px;
+	}
+
+	section {
+		display: block; }
+
+	h1 {
+		font-size: 24px;
+		margin: 10px 0 20px 0;
+		text-align: center; }
+
+	h1.logo {
+		text-align: center; }
+
+	h1.logo img {
+		max-height: 100px; }
+
+	.button-group {
+		display: -webkit-flex;
+  		display: flex;
+  		margin-bottom: 10px; }
+
+  	h2 {
+  		font-size: 20px;
+  		margin-bottom: 10px; }
+
+	.button-group .btn,
+	.button-group .btn {
+		border-radius: 0;
+		background: #666;
+		border: 0;
+		color: white;
+		flex: 1;
+		margin-right: 10px;
+		line-height: 60px;
+		text-align: center;
+		text-decoration: none;
+		border-radius: 2px;
+		cursor: pointer; }
+
+	.button-group .btn.red-btn {
+		background: #cc3333; }
+
+	.button-group .btn.gold-btn {
+		background: #cc9933; }
+
+	.button-group .btn:last-child {
+		margin-right: 0; }
+	
+	p { 
+		text-align: center;
+		margin-bottom: 15px;
+		line-height: 20px; }
+
+	p.callout {
+		font-size: 20px;
+		padding: 30px 15px;
+		margin-bottom: none;
+		line-height: inherit;
+		font-weight: 400;
+		color: #666;
+		font-size: 42px; }
+
+	p.disclaimer {
+		font-size: 11px;
+		padding: 15px;
+		text-align: left; }
+
+	.dynamic {
+		display: none; }
+
+	.footer {
+		border-top: 1px solid #DDD;
+		margin-top: 80px; }
+
+	.footer p {
+		font-size: 10px; }
+
+	form ul {
+		list-style: none;
+	}
+
+	form input,
+	form select,
+	form textarea {
+		width: 100%;
+		display: block;
+		padding: 15px;
+		font: inherit;
+		margin-bottom: 10px;
+		border-radius: 2px;
+		border: 1px solid #CCC; }
+
+	form .button-group .btn {
+		line-height: 44px; }
+
+	@media (max-width: 480px) { 
+
+	}
