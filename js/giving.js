@@ -13,26 +13,32 @@
 	$('a.add-contribution').on('click', function(e){
 		var row = $('.contribution-row:first-child').clone();
 
-		$('#contributions .contribution-row:first-child').after(row);
+		row.find('input,select').val('');
+
+		$('#contributions .total-row').before(row);
 	});
 
-	$('.delete-row').on('click', function(e){
-		console.log(  $(this) );
+	// Remove contribution
+	$(document).on('click', '.delete-row', function(e){
+	
 		if ( $(this).closest('.contribution-row').not(':first-child') ) {
-			alert('right here');
 			$(this).closest('.contribution-row').remove();
+			update_total();
 		}
 	});
 
-	$('input[name="total"').on('keyup', function(e){
+	$(document).on('keyup', 'input[name="amount[]"]', function(e){
+		update_total();
+	});
 
+	function update_total() {
 		var total = 0;
 
-		$('input[name="total"').each(function(){
+		$('input[name="amount[]"').each(function(){
 			total += $(this).val() * 1;
 		});
 
 		$('#total').text('$' + total);
-	});
+	}
 
 })(jQuery);

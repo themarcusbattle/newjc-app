@@ -29,7 +29,7 @@
 			</form>
 		</section>
 		<section id="signup-view" class="dynamic">
-			<p class="callout">Create an account to give.</p>
+			<p class="callout">Create an account to give</p>
 			<p>We promise not to sell/give your information to third parties.</p>
 			<form action="give.php" method="POST">
 				<ul>

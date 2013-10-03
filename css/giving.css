@@ -55,13 +55,18 @@
 		text-align: center;
 		text-decoration: none;
 		border-radius: 2px;
-		cursor: pointer; }
+		cursor: pointer;
+		width: 100%; }
 
 	.button-group .btn.red-btn {
 		background: #cc3333; }
 
 	.button-group .btn.gold-btn {
 		background: #cc9933; }
+
+	.button-group .btn.blank-btn {
+		background: transparent;
+		color: inherit; }
 
 	.button-group .btn:last-child {
 		margin-right: 0; }
@@ -106,7 +111,6 @@
 		display: block;
 		padding: 15px;
 		font: inherit;
-		margin-bottom: 10px;
 		border-radius: 2px;
 		border: 1px solid #CCC; }
 
@@ -121,6 +125,9 @@
 
 	table tr td { 
 		padding-right: 10px; }
+
+	table tr td:last-child { 
+		padding-right: 0; }
 
 	table thead th {
 		text-align: left; }
@@ -144,8 +151,19 @@
 		font-weight: bold; }
 
 	#contributions tr:last-child td:first-child {
-		text-align: left; }
+		text-align: left;
+		padding: 10px 0; }
+
+
+	.amount-given {
+		padding: 3px 6px;
+		background: #cc9933;
+		border-radius: 3px;
+		color: white;
+	}
 
 	@media (max-width: 480px) { 
 
+		.button-group.stacked {
+			display: block; }
 	}
