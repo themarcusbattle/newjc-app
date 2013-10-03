@@ -9,6 +9,7 @@
 		<h1><a href="/newjc-app">New Jerusalem Cathedral eGive</a></h1>
 		<section>
 			<p class="callout">Hi, <?php echo isset($_POST['first_name']) ? $_POST['first_name'] : 'Member' ?></p>
+			<p>Your giving goes towards our mission of resolving homelesness in Guilford County and Greater North Carolina.</p>
 		</section>
 		<section>
 			<h2>Contributions</h2>
@@ -47,10 +48,9 @@
 					</tr>
 				</table>
 				<p>&nbsp;</p>
-				<h2>Pay With</h2>
-				<div class="button-group stacked">
-					<button class="btn" type="submit">Give with VISA 5017</button>
-					<button class="btn blank-btn">Add New Credit Card</button>
+				<div class="button-group">
+					<a class="btn" href="add-credit-card.php">Add New Credit Card</a>
+					<button class="btn gold-btn" type="submit">Give with VISA 5017</button>
 				</div>
 			</form>
 			<p>&nbsp;</p>

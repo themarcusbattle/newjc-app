@@ -14,11 +14,13 @@
 		cursor: pointer;
 		display: inline-block; }
 
+	body {
+		border-top: 15px solid #CCC; }
+
 	.main {
 		max-width: 900px;
 		margin: 0 auto;
-		padding: 15px;
-	}
+		padding: 15px; }
 
 	section {
 		display: block; }
@@ -95,14 +97,17 @@
 
 	.footer {
 		border-top: 1px solid #DDD;
+		border-bottom: 6px solid #cc3333;
 		margin-top: 80px; }
 
 	.footer p {
 		font-size: 10px; }
 
 	form ul {
-		list-style: none;
-	}
+		list-style: none; }
+
+	form ul li {
+		padding: 5px 0; }
 
 	form input,
 	form select,
@@ -141,6 +146,9 @@
 
 	tr:first-child .delete-row {
 		display: none; }
+
+	#contributions .total-row td { 
+		padding: 10px 10px 10px 0; }
 
 	.total-row td:nth-child(2) {
 		font-size: 20px;

@@ -18,8 +18,8 @@
 			</div>
 		</section>
 		<section id="login-view" class="dynamic">
-			<p class="callout">Login to give</p>
-			<p>Or view your previous contributions</p>
+			<p class="callout">Login to give.</p>
+			<p>Or view your previous contributions.</p>
 			<form action="give.php" method="POST">
 				<ul>
 					<li><input type="text" placeholder="username" /></li>
@@ -29,7 +29,7 @@
 			</form>
 		</section>
 		<section id="signup-view" class="dynamic">
-			<p class="callout">Create an account to give</p>
+			<p class="callout">Create an account to give.</p>
 			<p>We promise not to sell/give your information to third parties.</p>
 			<form action="give.php" method="POST">
 				<ul>
