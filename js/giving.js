@@ -41,4 +41,33 @@
 		$('#total').text('$' + total);
 	}
 
+	$('form').on('submit', function(e){
+		e.preventDefault();
+
+		var method = $(this).attr('method');
+		var action = $(this).attr('action');
+
+		$.ajax({
+			type: method,
+			url: action,
+			data: $(this).serialize()
+
+		}).done(function( response ) {
+			
+			if ( response.errors ) alert( response.errors[0].msg );
+			else {
+				mochila.setCookie( 'access_token', response.access_token, 365 );
+				location.reload();
+			}
+		});
+
+	});
+
+	$('.logout').on('click', function(e){
+
+		if ( mochila.deleteCookie('access_token') ) {
+			location.reload();
+		}
+	});
+
 })(jQuery);

@@ -1,3 +1,7 @@
+<?php
+	if ( isset($_COOKIE['access_token']) ) header('Location: give.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -23,10 +27,13 @@
 			<section id="login-view" class="dynamic">
 				<p class="callout">Login to give.</p>
 				<p>Or view your previous contributions.</p>
-				<form action="give.php" method="POST">
+				<form action="http://marcusbattle.com/api/oauth/access_token" method="POST">
+					<input type="hidden" name="client_id" value="mo_xb1df7ynh3jnhql3fwn0e3" />
+					<input type="hidden" name="grant_type" value="password" />
+
 					<ul>
-						<li><input type="text" placeholder="username" /></li>
-						<li><input type="password" placeholder="password" /></li>
+						<li><input type="text" name="username" placeholder="username" /></li>
+						<li><input type="password" name="password" placeholder="password" /></li>
 						<li class="button-group"><button class="btn">Log In</button></li>
 					</ul>
 				</form>
@@ -56,5 +63,6 @@
 
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="js/giving.js"></script>
+		<script src="js/mochila.js"></script>
 	</body>
 </html>

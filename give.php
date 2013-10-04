@@ -1,3 +1,7 @@
+<?php
+	if ( !isset($_COOKIE['access_token']) ) header('Location: index.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -60,12 +64,19 @@
 				<p>- Malachi 3:10 -</p>
 			</section>
 			<section class="footer">
+				<?php if ( isset($_COOKIE['access_token']) ): ?>
+					<div class="button-group">
+						<a class="btn blank-btn logout">Logout</a>
+					</div>
+				<?php endif; ?>
 				<h1 class="logo"><a href="#"><img src="img/newjc-seal.png"/></a></h1>
 				<p>&copy 2013. New Jeruslaem Cahtedral. All Rights Reserved.</p>
 			</section>
 		</div>
 
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		
+		<script src="js/mochila.js"></script>
 		<script src="js/giving.js"></script>
 	</body>
 </html>
