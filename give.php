@@ -14,7 +14,7 @@
 		</section>
 		<div class="main">
 			<section>
-				<p class="callout">Hi, <?php echo isset($_POST['first_name']) ? $_POST['first_name'] : 'Member' ?></p>
+				<p class="callout">Hi, <?php echo isset($_COOKIE['first_name']) ? $_COOKIE['first_name'] : 'Member' ?></p>
 				<p>Your giving goes towards our mission of resolving homelesness in Guilford County and Greater North Carolina.</p>
 			</section>
 			<section>

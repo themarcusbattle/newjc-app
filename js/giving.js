@@ -56,9 +56,12 @@
 			
 			if ( response.errors ) alert( response.errors[0].msg );
 			else {
+	
+				mochila.setCookie( 'first_name', response.user.first_name, 365 );
 				mochila.setCookie( 'access_token', response.access_token, 365 );
 				location.reload();
 			}
+
 		});
 
 	});

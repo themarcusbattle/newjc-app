@@ -30,10 +30,9 @@
 				<form action="http://marcusbattle.com/api/oauth/access_token" method="POST">
 					<input type="hidden" name="client_id" value="mo_xb1df7ynh3jnhql3fwn0e3" />
 					<input type="hidden" name="grant_type" value="password" />
-
 					<ul>
-						<li><input type="text" name="username" placeholder="username" /></li>
-						<li><input type="password" name="password" placeholder="password" /></li>
+						<li><input type="text" name="username" placeholder="Username" /></li>
+						<li><input type="password" name="password" placeholder="Password" /></li>
 						<li class="button-group"><button class="btn">Log In</button></li>
 					</ul>
 				</form>
@@ -41,15 +40,15 @@
 			<section id="signup-view" class="dynamic">
 				<p class="callout">Create an account to give.</p>
 				<p>We promise not to sell/give your information to third parties.</p>
-				<form action="give.php" method="POST">
+				<form action="http://marcusbattle.com/api/users.json" method="POST">
+					<input type="hidden" name="client_id" value="mo_xb1df7ynh3jnhql3fwn0e3" />
 					<ul>
-						<li><input type="text" name="username" placeholder="username" /></li>
+						<li><input type="text" name="username" placeholder="Username" /></li>
 						<li><input type="text" name="first_name" placeholder="First Name" /></li>
 						<li><input type="text" name="last_name" placeholder="Last Name" /></li>
 						<li><input type="text" name="email" placeholder="Email" /></li>
 						<li><input type="password" name="password" placeholder="Password" /></li>
 						<li><input type="password" name="confirm_password" placeholder="Confirm Password" /></li>
-						<li><input type="text" name="birthday" placeholder="Birthday" /></li>
 						<li class="button-group"><button class="btn">Sign Up</button></li>
 					</ul>
 				</form>
