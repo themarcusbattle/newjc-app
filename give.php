@@ -33,11 +33,8 @@
 								<a class="delete-row">[Delete]</a>
 							</td>
 							<td>
-								<select>
+								<select name="contribution_types">
 									<option>--</option>
-									<option>Offering</option>
-									<option>Tithes</option>
-									<option>Gym Campaign</option>
 								</select>
 							</td>
 							<td>
@@ -60,7 +57,7 @@
 					</div>
 				</form>
 				<p>&nbsp;</p>
-				<p>You've given <span class="amount-given">$5,346</span> this year. Thank you for your continued support and obedience to God's Word.</p>
+				<p>You've given <span class="amount-given">$0</span> this year. Thank you for your continued support and obedience to God's Word.</p>
 				<p>- Malachi 3:10 -</p>
 			</section>
 			<section class="footer">
@@ -80,3 +77,41 @@
 		<script src="js/giving.js"></script>
 	</body>
 </html>
+
+<script>
+ 	if ( mochila.getCookie('access_token') ) {
+		
+		$.ajax({
+			type: 'GET',
+			url: 'http://marcusbattle.com/api/payments/contributions.json',
+			data: null
+		}).done(function( response ) {
+
+			if ( response.count ) {
+
+				$(response.contribution_types).each(function(){
+					$('select[name="contribution_types"]').append('<option>' + this + '</option>');
+				});
+			}
+		});
+
+		$.ajax({
+			type: 'GET',
+			url: 'http://marcusbattle.com/api/payments.json',
+			data: null
+		}).done(function( response ) {
+
+			var total = 0;
+
+			if ( response.count ) {
+
+				$(response.payments).each(function(){
+					total += this.amount * 1;
+				});
+			}
+			
+			$('.amount-given').text('$' + total);
+		});
+
+	}
+</script>
