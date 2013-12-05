@@ -1,5 +1,6 @@
 <?php
 	if ( !isset($_COOKIE['access_token']) ) header('Location: index.php');
+	$access_token = $_COOKIE['access_token'];
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +34,7 @@
 								<a class="delete-row">[Delete]</a>
 							</td>
 							<td>
-								<select name="contribution_types">
+								<select name="products">
 									<option>--</option>
 								</select>
 							</td>
@@ -51,9 +52,15 @@
 						</tr>
 					</table>
 					<p>&nbsp;</p>
+					<h2>Credit Card</h2>
+					<ul>
+						<!--<li><input type="text" placeholder="Cardholder Name" /></li>-->
+						<li><input type="text" placeholder="Credit Card Number" /></li>
+						<li><input type="text" placeholder="Exp Date" /></li>
+						<li><input type="text" placeholder="CVC" /></li>
+					</ul>
 					<div class="button-group">
-						<a class="btn" href="add-credit-card.php">Add New Credit Card</a>
-						<button class="btn gold-btn" type="submit">Give with VISA 5017</button>
+						<button class="btn gold-btn" type="submit">Give</button>
 					</div>
 				</form>
 				<p>&nbsp;</p>
@@ -83,22 +90,23 @@
 		
 		$.ajax({
 			type: 'GET',
-			url: 'http://marcusbattle.com/api/payments/contributions.json',
-			data: null
+			url: '//marcus.dev/api/products/contributions.json',
+			data: { access_token: '<?php echo $access_token ?>' }
 		}).done(function( response ) {
 
 			if ( response.count ) {
 
-				$(response.contribution_types).each(function(){
-					$('select[name="contribution_types"]').append('<option>' + this + '</option>');
+				$(response.contributions).each(function(){
+					console.log( this.name );
+					$('select[name="products"]').append('<option>' + this.name + '</option>');
 				});
 			}
 		});
 
 		$.ajax({
 			type: 'GET',
-			url: 'http://marcusbattle.com/api/payments.json',
-			data: null
+			url: '//marcus.dev/api/payments.json',
+			data: { access_token: '<?php echo $access_token ?>' }
 		}).done(function( response ) {
 
 			var total = 0;

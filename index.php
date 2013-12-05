@@ -27,8 +27,8 @@
 			<section id="login-view" class="dynamic">
 				<p class="callout">Login to give.</p>
 				<p>Or view your previous contributions.</p>
-				<form action="http://marcusbattle.com/api/oauth/access_token" method="POST">
-					<input type="hidden" name="client_id" value="mo_xb1df7ynh3jnhql3fwn0e3" />
+				<form action="http://marcus.dev/api/oauth/access_token" method="POST">
+					<input type="hidden" name="client_id" value="mo_qzrakvzbi7Ajmai0sj9Al3" />
 					<input type="hidden" name="grant_type" value="password" />
 					<ul>
 						<li><input type="text" name="username" placeholder="Username" /></li>
@@ -40,8 +40,8 @@
 			<section id="signup-view" class="dynamic">
 				<p class="callout">Create an account to give.</p>
 				<p>We promise not to sell/give your information to third parties.</p>
-				<form action="http://marcusbattle.com/api/users.json" method="POST">
-					<input type="hidden" name="client_id" value="mo_xb1df7ynh3jnhql3fwn0e3" />
+				<form action="http://marcus.dev/api/users.json" method="POST">
+					<input type="hidden" name="client_id" value="mo_qzrakvzbi7Ajmai0sj9Al3" />
 					<ul>
 						<li><input type="text" name="username" placeholder="Username" /></li>
 						<li><input type="text" name="first_name" placeholder="First Name" /></li>
