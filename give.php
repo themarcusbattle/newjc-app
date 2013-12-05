@@ -20,7 +20,8 @@
 			</section>
 			<section>
 				<h2>Contributions</h2>
-				<form method="POST">
+				<form action="//marcus.dev/api/payments.json" method="POST">
+					<input type="hidden" name="access_token" value="<?php echo $access_token ?>" />
 					<table id="contributions">
 						<thead>
 						    <tr>
@@ -34,7 +35,7 @@
 								<a class="delete-row">[Delete]</a>
 							</td>
 							<td>
-								<select name="products">
+								<select name="products[]">
 									<option>--</option>
 								</select>
 							</td>
