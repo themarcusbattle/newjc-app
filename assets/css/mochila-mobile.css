@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  border: none;
+  /*-webkit-user-select: none;
+  -webkit-touch-callout: none !important;*/
+  -webkit-text-size-adjust: 100%;
+  font-family: Helvetica Neue, Helvetica, Tahoma, Arial;
+  outline: none; }
+
+/** GLOBAL **/
+html,
+body {
+  height: 100%;
+  background: white;
+  overflow: hidden; }
+
+header {
+  height: 43px;
+  border-bottom: 1px solid #a0a0a0;
+  top: 0;
+  z-index: 10; }
+  header h1 {
+    font-size: 17px;
+    color: black;
+    font-weight: 600;
+    width: 100%;
+    display: block;
+    line-height: 43px;
+    text-align: center; }
+
+section {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden; }
+  section .view {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 49px; }
+
+form ul,
+.tableview ul {
+  background: #fff;
+  padding-left: 15px;
+  margin: 0;
+  overflow: hidden; }
+  form ul > li,
+  .tableview ul > li {
+    padding: 16px 15px 16px 0;
+    list-style: none;
+    border-bottom: 1px solid #c8c8c8;
+    display: -webkit-box;
+    /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+    display: -moz-box;
+    /* OLD: Firefox (buggy) */
+    display: -ms-flexbox;
+    /* MID: IE 10 */
+    display: -webkit-flex;
+    /* NEW, Chrome 21+ */
+    display: box;
+    display: flex;
+    width: 100%; }
+    form ul > li:last-of-type,
+    .tableview ul > li:last-of-type {
+      border-bottom: none; }
+    form ul > li *,
+    .tableview ul > li * {
+      font: inherit; }
+    form ul > li *:first-child,
+    .tableview ul > li *:first-child {
+      margin-right: 20px; }
+    form ul > li input,
+    form ul > li select,
+    form ul > li textarea,
+    .tableview ul > li input,
+    .tableview ul > li select,
+    .tableview ul > li textarea {
+      font: inherit;
+      display: block;
+      -webkit-box-flex: 1;
+      box-flex: 1;
+      flex: 1;
+      white-space: nowrap;
+      width: 100%;
+      color: #777777;
+      -webkit-appearance: none; }
+    form ul > li textarea,
+    .tableview ul > li textarea {
+      white-space: normal;
+      min-height: 55px; }
+    form ul > li button,
+    .tableview ul > li button {
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      background: white;
+      background: #007aff;
+      color: #fff;
+      border: none;
+      display: block;
+      font-weight: 100;
+      font-size: 22px; }
+    form ul > li > label,
+    .tableview ul > li > label {
+      margin-right: 10px;
+      text-align: left;
+      min-width: 100px; }
+form h2,
+.tableview h2 {
+  padding: 10px 15px;
+  color: #4d4d4d;
+  border-bottom: none;
+  height: initial;
+  text-transform: uppercase; }
+  form h2:first-of-type,
+  .tableview h2:first-of-type {
+    margin-top: 25px; }
+form.grouped,
+.tableview.grouped {
+  background-color: #e5e5e5; }
+  form.grouped ul,
+  .tableview.grouped ul {
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
+    margin-bottom: 30px; }
+    form.grouped ul:first-of-type,
+    .tableview.grouped ul:first-of-type {
+      border-top: none; }
+    form.grouped ul:last-of-type,
+    .tableview.grouped ul:last-of-type {
+      margin-bottom: 0; }
+  form.grouped ~ footer,
+  .tableview.grouped ~ footer {
+    margin-top: -30px; }
+form footer,
+.tableview footer {
+  padding: 10px 15px;
+  color: #4d4d4d;
+  border-bottom: none;
+  height: initial;
+  border-top: none; }
+
+.modal {
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  z-index: 99;
+  height: 100%;
+  top: 100%; }
+  .modal.show {
+    top: 0;
+    transition: top 200ms ease-in-out;
+    -webkit-transition: top 300ms ease-in-out; }
+  .modal.hide {
+    top: 100%;
+    transition: top 200ms ease-in-out;
+    -webkit-transition: top 300ms ease-in-out; }

@@ -20,7 +20,7 @@
 			</section>
 			<section>
 				<h2>Contributions</h2>
-				<form action="//marcus.dev/api/payments.json" method="POST">
+				<form action="//marcus.dev/wp/api/payments.json" method="POST">
 					<input type="hidden" name="access_token" value="<?php echo $access_token ?>" />
 					<table id="contributions">
 						<thead>
@@ -36,7 +36,7 @@
 							</td>
 							<td>
 								<select name="products[]">
-									<option>--</option>
+									<option value="">--</option>
 								</select>
 							</td>
 							<td>
@@ -56,13 +56,15 @@
 					<h2>Credit Card</h2>
 					<ul>
 						<!--<li><input type="text" placeholder="Cardholder Name" /></li>-->
-						<li><input type="text" placeholder="Credit Card Number" /></li>
-						<li><input type="text" placeholder="Exp Date" /></li>
-						<li><input type="text" placeholder="CVC" /></li>
+						<li><input type="text" name="card_number" placeholder="Credit Card Number" /></li>
+						<li><input type="text" name="exp_month" placeholder="Exp Month" maxlength="2" /></li>
+						<li><input type="text" name="exp_year" placeholder="Exp Year" maxlength="4" /></li>
+						<li><input type="text" name="cvc" placeholder="CVC" maxlength="3" /></li>
 					</ul>
 					<div class="button-group">
 						<button class="btn gold-btn" type="submit">Give</button>
 					</div>
+					<input type="hidden" name="total" />
 				</form>
 				<p>&nbsp;</p>
 				<p>You've given <span class="amount-given">$0</span> this year. Thank you for your continued support and obedience to God's Word.</p>
@@ -91,7 +93,7 @@
 		
 		$.ajax({
 			type: 'GET',
-			url: '//marcus.dev/api/products/contributions.json',
+			url: '//marcus.dev/wp/api/products/contributions.json',
 			data: { access_token: '<?php echo $access_token ?>' }
 		}).done(function( response ) {
 
@@ -99,14 +101,14 @@
 
 				$(response.contributions).each(function(){
 					console.log( this.name );
-					$('select[name="products"]').append('<option>' + this.name + '</option>');
+					$('select[name="products[]"]').append('<option value="' + this.id + '">' + this.name + '</option>');
 				});
 			}
 		});
 
 		$.ajax({
 			type: 'GET',
-			url: '//marcus.dev/api/payments.json',
+			url: '//marcus.dev/wp/api/payments.json',
 			data: { access_token: '<?php echo $access_token ?>' }
 		}).done(function( response ) {
 
@@ -116,10 +118,12 @@
 
 				$(response.payments).each(function(){
 					total += this.amount * 1;
+					console.log(this.amount);
 				});
 			}
 			
 			$('.amount-given').text('$' + total);
+
 		});
 
 	}

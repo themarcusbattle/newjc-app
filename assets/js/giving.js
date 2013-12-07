@@ -39,6 +39,7 @@
 		});
 
 		$('#total').text('$' + total);
+		$('input[name="total"]').val(total);
 	}
 
 	$('form').on('submit', function(e){

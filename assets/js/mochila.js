@@ -98,13 +98,32 @@ function deleteCookie(c_name) {
 	else return false;
 }
 
+function showModal( object ) {
+
+	$(object).addClass('show');
+
+}
+
+function isAuthorized() {
+
+	if ( getCookie('access_token') ) {
+		
+		return true;
+
+	}
+
+	return false;
+
+}
+
 Mochila.prototype.init = init;
 Mochila.prototype.isInitialized = isInitialized;
 Mochila.prototype.connect = connect;
 Mochila.prototype.setCookie = setCookie;
 Mochila.prototype.getCookie = getCookie;
 Mochila.prototype.deleteCookie = deleteCookie;
+Mochila.prototype.showModal = showModal;
+Mochila.prototype.isAuthorized = isAuthorized;
 
 window.mochila = new Mochila();
-
 
