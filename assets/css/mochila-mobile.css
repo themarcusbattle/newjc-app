@@ -15,36 +15,75 @@
 html,
 body {
   height: 100%;
+  width: 100%;
   background: white;
-  overflow: hidden; }
+  overflow: hidden;
+  display: block; }
 
 header {
   height: 43px;
   border-bottom: 1px solid #a0a0a0;
   top: 0;
-  z-index: 10; }
+  z-index: 10;
+  position: relative;
+  background-color: white; }
+  header * {
+    line-height: 43px;
+    display: block; }
   header h1 {
     font-size: 17px;
     color: black;
     font-weight: 600;
     width: 100%;
-    display: block;
-    line-height: 43px;
     text-align: center; }
+  header *:first-child:not(h1),
+  header h1 ~ * {
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    height: 100%;
+    min-width: 40px;
+    top: 0;
+    color: #007aff;
+    -webkit-transition: right 5s ease 500s;
+    padding: 0 4px;
+    text-decoration: none; }
+  header *:first-child:not(h1) {
+    left: 6px; }
+  header h1 ~ * {
+    right: 6px; }
 
 section {
   width: 100%;
   height: 100%;
-  background-color: #fff;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  display: block;
+  right: -100%;
+  z-index: 0; }
   section .view {
+    background-color: #fff;
     width: 100%;
     height: 100%;
     position: relative;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 49px; }
+    display: block;
+    padding-bottom: 43px; }
+  section.slide {
+    right: 0;
+    transition: right 300ms ease-in-out;
+    -webkit-transition: right 300ms ease-in-out;
+    z-index: 100; }
+  section.shift {
+    right: 0;
+    transition: right 300ms ease-in-out;
+    -webkit-transition: right 300ms ease-in-out;
+    z-index: 100; }
+  section.show {
+    right: 0; }
+  section.hide {
+    display: none; }
 
 form ul,
 .tableview ul {
@@ -74,9 +113,6 @@ form ul,
     form ul > li *,
     .tableview ul > li * {
       font: inherit; }
-    form ul > li *:first-child,
-    .tableview ul > li *:first-child {
-      margin-right: 20px; }
     form ul > li input,
     form ul > li select,
     form ul > li textarea,
@@ -146,7 +182,8 @@ form footer,
   color: #4d4d4d;
   border-bottom: none;
   height: initial;
-  border-top: none; }
+  border-top: none;
+  text-align: center; }
 
 .modal {
   width: 100%;
@@ -155,7 +192,8 @@ form footer,
   top: 0;
   z-index: 99;
   height: 100%;
-  top: 100%; }
+  top: 100%;
+  display: block; }
   .modal.show {
     top: 0;
     transition: top 200ms ease-in-out;
@@ -164,3 +202,8 @@ form footer,
     top: 100%;
     transition: top 200ms ease-in-out;
     -webkit-transition: top 300ms ease-in-out; }
+  .modal.shift {
+    right: 100%;
+    transition: right 1s ease-in-out;
+    -webkit-transition: right 1s ease-in-out;
+    z-index: 100; }

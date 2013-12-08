@@ -8,13 +8,13 @@
         <link rel="stylesheet" href="assets/css/newjc.css">
     </head>
     <body class="native">
-
+        
         <section id="login" class="modal">
             <header>
                 <h1>Login</h1>
+                <a href="register" data-action="slide">Register</a>
             </header>
-
-            <div class="content content-padded">
+            <div class="view">
                 <form action="//marcus.dev/wp/api/oauth/access_token" method="POST" class="tableview login" data-success="closeModal">
                     <input type="hidden" name="client_id" value="mo_y00emA53a9Atvevnwqrj2o" />
                     <input type="hidden" name="grant_type" value="password" />
@@ -27,7 +27,28 @@
             </div>
         </section>
 
-        <section>
+        <section id="register">
+            <header>
+                <a href="#" class="cancel">Cancel</a>
+                <h1>Register</h1>
+            </header>
+            <div class="view">
+                <form action="//marcus.dev/wp/api/users.json" method="POST" class="tableview">
+                    <input type="hidden" name="client_id" value="mo_y00emA53a9Atvevnwqrj2o" />
+                    <ul>
+                        <li><input type="text" name="username" placeholder="Username" /></li>
+                        <li><input type="text" name="first_name" placeholder="First Name" /></li>
+                        <li><input type="text" name="last_name" placeholder="Last Name" /></li>
+                        <li><input type="text" name="email" placeholder="Email" /></li>
+                        <li><input type="password" name="password" placeholder="Password" /></li>
+                        <li><input type="password" name="confirm_password" placeholder="Confirm Password" /></li>
+                        <li class="button-group"><button class="btn" type="submit">Sign Up</button></li>
+                    </ul>
+                </form>
+            </div>
+        </section>
+
+        <section id="give" class="show">
             <header>
                 <h1>Give</h1>
             </header>
@@ -74,7 +95,7 @@
             </div>
             </div>
         </section>
-
+        
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="assets/js/mochila.js"></script>
     </body>
@@ -83,8 +104,10 @@
 <script>
 $(document).ready(function(){ 
 
+    $('section').addClass('hide');
+
     if ( mochila.isAuthorized() ) {
-        $('#give').show();
+        $('#give').addClass('show').removeClass('hide');
     } else {
         mochila.showModal('#login.modal');
     }
@@ -99,7 +122,6 @@ $(document).ready(function(){
         if ( response.count ) {
 
             $(response.contributions).each(function(){
-                console.log( this.name );
                 $('select[name="products[]"]').append('<option value="' + this.id + '">' + this.name + '</option>');
             });
         }
@@ -118,7 +140,6 @@ $(document).ready(function(){
 
             $(response.payments).each(function(){
                 total += this.amount * 1;
-                console.log(this.amount);
             });
         }
         
@@ -227,6 +248,25 @@ $(document).ready(function(){
             location.reload();
         }
     });
+
+
+    $(document).on( 'click', 'header a', function(e) {
+        e.preventDefault();
+
+        if ( $(this).hasClass('cancel') ) {
+            $('.slide').removeClass('slide');
+            $('.shift').removeClass('shift');
+        } else {
+            var action = $(this).data('action');
+            var target = $('#' + $(this).attr('href'));
+            
+            $(this).closest('section').addClass('shift');
+            $(target).removeClass('hide');
+            $(target).addClass( action );
+        }
+
+    });
+    
 
 });
 </script>

@@ -100,7 +100,7 @@ function deleteCookie(c_name) {
 
 function showModal( object ) {
 
-	$(object).addClass('show');
+	$(object).addClass('show').removeClass('hide');
 
 }
 
@@ -127,3 +127,17 @@ Mochila.prototype.isAuthorized = isAuthorized;
 
 window.mochila = new Mochila();
 
+
+
+$('section').on( 'touchend', function(){
+
+	// window.scrollTo(0, 1);
+
+});
+
+if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+
+}
+
+// $('html,body').css('height',screen.height);
+// window.scrollTo(0, 1);
