@@ -128,7 +128,6 @@ Mochila.prototype.isAuthorized = isAuthorized;
 window.mochila = new Mochila();
 
 
-
 $('section').on( 'touchend', function(){
 
 	// window.scrollTo(0, 1);

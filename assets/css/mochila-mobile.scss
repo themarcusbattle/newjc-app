@@ -68,14 +68,22 @@ header {
 
 }
 
+#viewport{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	overflow: hidden; 
+	display: block;
+}
+
 section {
 	width: 100%;
 	height: 100%;
-	position: relative;
+	position: absolute;
 	overflow: hidden; 
 	display: block;
 	right: -100%;
-	z-index: 0;
+	z-index: 1;
 
 	.view {
 		background-color: #fff;
@@ -93,6 +101,7 @@ section {
 		transition: right 300ms ease-in-out;
 		-webkit-transition: right 300ms ease-in-out;
 		z-index: 100;
+		position: relative;
 	}
 
 	&.shift {
@@ -110,6 +119,14 @@ section {
 		display: none;
 	}
 
+	&.reveal {
+		right: -280px;
+		transition: right 300ms ease-in-out;
+		-webkit-transition: right 300ms ease-in-out;
+		-moz-box-shadow:    3px 0px 3px 4px #CCC;
+		-webkit-box-shadow: 3px 0px 3px 4px #CCC;
+		box-shadow:         3px 0px 3px 4px #CCC;
+	}
 }
 
 form,
@@ -258,4 +275,99 @@ form,
 		z-index: 100;
 	}
 
+}
+
+#menu {
+
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	display: block;
+	z-index: 0;
+	left: -20px;
+
+	li {
+		padding: 0;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+		width: 100%;
+		padding: 14px 0;
+	}
+
+	&.focus {
+		left: 0;
+		transition: left 300ms ease-in-out;
+		-webkit-transition: left 300ms ease-in-out;
+	}
+
+	&.side-menu {
+		background-color: #333;
+	}
+
+	&.tableview {
+		background-color: transparent;
+
+		li {
+			border-bottom: 1px solid #ddd;
+		}
+
+	}
+
+}
+
+.post {
+	background: #fff;
+	border: 1px solid #ddd;
+	margin: 10px;
+	padding: 10px;
+	font-size: 14px;
+	-moz-box-shadow:    0px 1px 7px #ddd;
+	-webkit-box-shadow: 0px 1px 7px #ddd;
+	box-shadow:         0px 1px 7px #ddd;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	display: block;
+	
+	h3 {
+		font-weight: bold;
+		font-size: 15px;
+		margin-bottom: 10px;
+
+		small {
+			display: block;
+			color: #999;
+		}
+
+	}
+
+	.img {
+		overflow: hidden;
+		display: block;
+		width: 100%;
+		height: 250px;
+		margin-top: 5px;
+		background-position: center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	.content {
+		margin-bottom: 8px;
+		color: #555;
+	}
+
+	.read-more {
+		color: #007aff;
+		text-decoration: none;
+	}
 }

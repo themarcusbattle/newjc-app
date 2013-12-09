@@ -14,6 +14,7 @@
 }
 
 .contribution-row:first-of-type .delete-row { background-image: none; }
+.contribution-row select:first-of-type { min-width: 200px; }
 
 .total-row {
 	font-weight: bold;
@@ -22,3 +23,5 @@
 .total-row span:first-of-type {
 	margin-right: 10px;
 }
+
+#news .view { background: #eee; }
